@@ -26,7 +26,7 @@ public class User {
     private LocalDate birthDate;
     private String password;
 
-    public User(){
+    public User() {
 
     }
 

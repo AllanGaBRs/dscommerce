@@ -1,10 +1,7 @@
 package com.allangabr.dscommerce.controllers;
 
 import com.allangabr.dscommerce.dto.ProductDTO;
-import com.allangabr.dscommerce.entities.Product;
-import com.allangabr.dscommerce.repositories.ProductRepository;
 import com.allangabr.dscommerce.services.ProductService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
@@ -45,12 +40,12 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductDTO> update (@RequestBody ProductDTO dto, @PathVariable Long id) {
+    public ResponseEntity<ProductDTO> update(@RequestBody ProductDTO dto, @PathVariable Long id) {
         return ResponseEntity.ok(productService.update(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         productService.delete(id);
         return ResponseEntity.noContent().build();
     }

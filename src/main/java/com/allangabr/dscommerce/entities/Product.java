@@ -32,7 +32,7 @@ public class Product {
     @OneToMany(mappedBy = "id.product")
     private Set<OrderItem> items = new HashSet<>();
 
-    public Product(){
+    public Product() {
 
     }
 
@@ -92,7 +92,7 @@ public class Product {
         return items;
     }
 
-    public List<Order> getOrders(){
+    public List<Order> getOrders() {
         return items.stream().map(x -> x.getOrder()).toList();
     }
 
